@@ -1,49 +1,12 @@
-package org.fasttrackit.countries.homeworkcurs19;
+package org.fasttrackit.countries.homeworkcurs19.service;
+
+import org.fasttrackit.countries.homeworkcurs19.model.Transaction;
+import org.fasttrackit.countries.homeworkcurs19.model.TransactionType;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-enum TransactionType {
-    SELL,
-    BUY
-}
-
-class Transaction {
-    private String id;
-    private String product;
-    private TransactionType type;
-    private double amount;
-
-    public Object getId() {
-        return null;
-    }
-
-    public void setProduct(String product) {
-
-    }
-
-    public void setAmount(double amount) {
-
-    }
-
-    public TransactionType getType() {
-        return null;
-    }
-
-    public double getAmount() {
-        return 0;
-    }
-
-    public String getProduct() {
-        return null;
-    }
-
-    // Constructor, getters, and setters
-
-    // ...
-}
 
 class TransactionRepository {
     private List<Transaction> transactions;
