@@ -21,9 +21,11 @@ class Transaction {
     }
 
     public void setProduct(String product) {
+
     }
 
     public void setAmount(double amount) {
+
     }
 
     public TransactionType getType() {
@@ -154,8 +156,36 @@ class TransactionRepository {
     }
 
     public List<Transaction> getByTypeAndMax(TransactionType type, double maxAmount) {
-        List<Transaction> filteredTransactions;
-        filteredTransactions = new;
+        List<Transaction> filteredTransactions = new ArrayList<>();
+        for (Transaction transaction : transactions) {
+            if (transaction.getType() == type && transaction.getAmount() <= maxAmount) {
+                filteredTransactions.add(transaction);
+            }
+        }
+        return filteredTransactions;
+    }
+
+    public List<Transaction> getByMinAndMax(double minAmount, double maxAmount) {
+        List<Transaction> filteredTransactions = new ArrayList<>();
+        for (Transaction transaction : transactions) {
+            if (transaction.getAmount() >= minAmount && transaction.getAmount() <= maxAmount) {
+                filteredTransactions.add(transaction);
+            }
+        }
+        return filteredTransactions;
+    }
+
+    public List<Transaction> getByTypeAndMinAndMax(TransactionType type, double minAmount, double maxAmount) {
+        List<Transaction> filteredTransactions = new ArrayList<>();
+        for (Transaction transaction : transactions) {
+            if (transaction.getType() == type && transaction.getAmount() >= minAmount && transaction.getAmount() <= maxAmount) {
+                filteredTransactions.add(transaction);
+            }
+        }
+        return filteredTransactions;
     }
 }
+
+// Your API controller or servlet can use the TransactionRepository to handle the requests
+
 
